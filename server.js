@@ -13,7 +13,11 @@ const mogodburi="mongodb+srv://aadi:Adarsh1442005@cluster0.nc0yl.mongodb.net/har
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://your-frontend-domain.com', // or use '*' for development
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 // Routes
 app.get('/', (req, res) => {
